@@ -17,9 +17,12 @@ public class UserProfile {
     private String summary;
     private String firstName;
     private String lastName;
+    private String fullName;
     private String email;
     private String phone;
     private String designation;
+
+
 
     //One profile can have many jobs
     //When a profile delete, the jobs delete
@@ -45,6 +48,14 @@ public class UserProfile {
         this.lastName = lastName;
     }
 
+    public String setFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
+    public String getFullName(){
+        return this.fullName;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -61,7 +72,7 @@ public class UserProfile {
         this.phone = phone;
     }
 
-    public String getDesignation(String designation) {
+    public String getDesignation() {
         return this.designation;
     }
 
@@ -107,5 +118,22 @@ public class UserProfile {
 
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    @Override
+    public String toString() {
+        return "UserProfile{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", theme=" + theme +
+                ", summary='" + summary + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", designation='" + designation + '\'' +
+                ", jobs=" + jobs +
+                '}';
     }
 }
