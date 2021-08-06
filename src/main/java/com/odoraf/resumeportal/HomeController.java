@@ -35,15 +35,16 @@ public class HomeController {
         //new job obj
         Job job1 = new Job();
         job1.setCompany("Company 1");
-        job1.getDesignation("Designation");
+        job1.setDesignation("Designation");
         job1.setId(1);
         job1.setStartDate(LocalDate.of(2020, 1,1));
-        job1.setEndDate(LocalDate.of(2020,3,1));
+//        job1.setEndDate(LocalDate.of(2020,3,1));
+        job1.setCurrentJob(true);
 
         //second new job obj
         Job job2 = new Job();
         job2.setCompany("Company 2");
-        job2.getDesignation("Designation");
+        job2.setDesignation("Designation");
         job2.setId(2);
         job2.setStartDate(LocalDate.of(2019, 5,1));
         job2.setEndDate(LocalDate.of(2020,1,1));
@@ -57,7 +58,7 @@ public class HomeController {
         System.out.println(profile1);
 
         //save profile into user repository
-//        userProfileRepository.save(profile1);
+        userProfileRepository.save(profile1);
         return "profile";
     }
 
