@@ -21,7 +21,7 @@ insert into user_profile (id,
  'Isaac', 'Newton', 'newton@gmail.com', '222-222-2222',
  'Mathematician, physicist, astronomer, theologian, and author'),
 
-(3, 'od', 3,'Atm not much ', 'OD', 'Orafidiya', 'odorafidiya@gmail.com', '222-222-2222', 'Software Engineer')
+(3, 'od', 1,'Atm not much ', 'OD', 'Orafidiya', 'odorafidiya@gmail.com', '222-222-2222', 'Software Engineer')
 
 
 

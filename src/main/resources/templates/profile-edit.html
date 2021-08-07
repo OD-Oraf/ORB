@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Profile</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <h1 th:text="${userId} + '\'s profile'">Profile</h1>
+
+        <div class="container">
+
+            <!--Thymleaf form-->
+            <form action="#" th:action="@{/edit}" th:object="${userProfile}" method="post">
+                <!-- First Name-->
+                <div class="mb-3">
+                    <label>First Name</label>
+                    <input th:field="*{firstName}" class="form-control">
+                </div>
+
+                <!-- Last Name-->
+                <div class="mb-3">
+                    <label>Last Name</label>
+                    <input th:field="*{lastName}" class="form-control">
+                </div>
+
+                <!--Email-->
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input th:field="*{email}" class="form-control">
+                </div>
+
+                <!--Phone-->
+                <div class="mb-3">
+                    <label>Phone</label>
+                    <input th:field="*{phone}" class="form-control">
+                </div>
+
+                <!--Designation-->
+                <div class="mb-3">
+                    <label for="designation" class="form-label" >Designation</label>
+                    <input type="text" th:field="*{designation}" class="form-control" id="designation" aria-describedby="emailHelp">
+                </div>
+
+            </form>
+        </div>
+    </body>
+</html>

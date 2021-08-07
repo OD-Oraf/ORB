@@ -22,8 +22,6 @@ public class UserProfile {
     private String phone;
     private String designation;
 
-
-
     //One profile can have many jobs
     //When a profile delete, the jobs delete
     @OneToMany(cascade = CascadeType.ALL,
@@ -31,6 +29,31 @@ public class UserProfile {
     @JoinColumn(name = "job_id")
     List<Job> jobs = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL,
+        orphanRemoval = true)
+    @JoinColumn(name = "education_id")
+    List<Education> education = new ArrayList<>();
+
+    @ElementCollection(targetClass = String.class)
+    List<String> skills = new ArrayList<>();
+
+
+    //Getters and Setters
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
+    }
+
+    public List<Education> getEducation() {
+        return education;
+    }
+
+    public void setEducation(List<Education> education) {
+        this.education = education;
+    }
 
     public String getFirstName() {
         return firstName;

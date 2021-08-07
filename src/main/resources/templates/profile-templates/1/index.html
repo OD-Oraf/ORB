@@ -23,7 +23,7 @@
 		<div id="cv" class="instaFade">
 			<div class="mainDetails">
 				<div id="headshot" class="quickFade">
-					<img src="../profile-templates/1/headshot.jpg" alt="Alan Smith" />
+<!--					<img src="../profile-templates/1/headshot.jpg" alt="Alan Smith" />-->
 				</div>
 
 				<div id="name">
@@ -76,11 +76,12 @@
 							<p class="subDetails">
 								<span th:text="${job.formattedStartDate}">April 2011</span>
 								-
-								<span
-									th:text="${job.isCurrentJob} ? 'Present' :
+								<span th:text="${job.isCurrentJob} ? 'Present' :
 								 	${job.formattedEndDate}">Present</span>
 							</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+							<ul th:each="responsibility : ${job.responsibilities}">
+								<li th:text="${responsibility}">Responsibility</li>
+							</ul>
 						</article>
 					</div>
 
@@ -94,15 +95,8 @@
 					</div>
 
 					<div class="sectionContent">
-						<ul class="keySkills">
-							<li>A Key Skill</li>
-							<li>A Key Skill</li>
-							<li>A Key Skill</li>
-							<li>A Key Skill</li>
-							<li>A Key Skill</li>
-							<li>A Key Skill</li>
-							<li>A Key Skill</li>
-							<li>A Key Skill</li>
+						<ul class="keySkills" th:each="skill : ${userProfile.skills}">
+							<li th:text="${skill}">A Key Skill</li>
 						</ul>
 					</div>
 					<div class="clear"></div>
@@ -114,17 +108,17 @@
 						<h1>Education</h1>
 					</div>
 
-					<div class="sectionContent">
+					<div class="sectionContent" th:each="education : ${userProfile.education}">
 						<article>
-							<h2>College/University</h2>
-							<p class="subDetails">Qualification</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-						</article>
-
-						<article>
-							<h2>College/University</h2>
-							<p class="subDetails">Qualification</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
+							<h2 th:text="${education.school}">College/University</h2>
+							<p class="subDetails" th:text="${education.degree}">Qualification</p>
+<!--							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>-->
+							<p class="subDetails">
+								<span th:text="${education.formattedStartDate}">April 2011</span>
+								-
+								<span th:text="${education.isStudent} ? 'Present' :
+								 	${education.formattedEndDate}">Present</span>
+							</p>
 						</article>
 					</div>
 					<div class="clear"></div>
