@@ -1,5 +1,7 @@
 package com.odoraf.resumeportal.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +17,10 @@ public class Education {
     private int id;
     private String school;
     private String degree;
+    //formatting for the data to show up in profile-edit
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
     private boolean isStudent;
 

@@ -1,5 +1,7 @@
 package com.odoraf.resumeportal.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +17,10 @@ public class Job {
     private int id;
     private String company;
     private String designation;
+    //get dates to show up in the profile-edit
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
     private boolean isCurrentJob;
     //Needed for primitive data types so hibernate knows how to process
@@ -47,7 +52,7 @@ public class Job {
     }
 
     public String getCompany() {
-        return company;
+        return this.company;
     }
 
     public void setCompany(String company) {
@@ -79,11 +84,11 @@ public class Job {
     }
 
     public String getFormattedStartDate(){
-        return startDate.format(DateTimeFormatter.ofPattern("MMM yyyy"));
+        return startDate.format(DateTimeFormatter.ofPattern("MM yyyy"));
     }
 
     public String getFormattedEndDate(){
-        return endDate.format(DateTimeFormatter.ofPattern("MMM yyyy"));
+        return endDate.format(DateTimeFormatter.ofPattern("MM yyyy"));
     }
 
     @Override

@@ -4,13 +4,17 @@
     <head>
         <meta charset="UTF-8">
         <title>Profile</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+              crossorigin="anonymous">
     </head>
 
     <body>
-        <h1 th:text="${userId} + '\'s profile'">Profile</h1>
 
         <div class="container">
+            <h1 th:text="${userId} + '\'s profile'">Profile</h1>
+
 
             <!--Thymleaf form-->
             <form action="#" th:action="@{/edit}" th:object="${userProfile}" method="post">
@@ -40,11 +44,117 @@
 
                 <!--Designation-->
                 <div class="mb-3">
-                    <label for="designation" class="form-label" >Designation</label>
-                    <input type="text" th:field="*{designation}" class="form-control" id="designation" aria-describedby="emailHelp">
+                    <label>Designation</label>
+                    <input th:field="*{designation}" class="form-control">
                 </div>
 
+                <h2>Experience</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Designation</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Current Job?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="job,stat : *{jobs}">
+                            <td>
+                                <input
+                                    class="form-control"
+                                    th:field="*{jobs[__${stat.index}__].company}">
+                            </td>
+                            <td>
+                                <input
+                                    class="form-control"
+                                    th:field="*{jobs[__${stat.index}__].designation}">
+                            </td>
+                            <td>
+                                <input
+                                    class="form-control"
+                                    type="date"
+                                    th:field="*{jobs[__${stat.index}__].startDate}">
+                            </td>
+                            <td>
+                                <input
+                                    class="form-control"
+                                    type ="date"
+                                    th:field="*{jobs[__${stat.index}__].endDate}">
+                            </td>
+                            <td class="form-check form-switch">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    th:field="*{jobs[__${stat.index}__].currentJob}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Education</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>School</th>
+                            <th>Degree</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Currently a student?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="education,stat : *{education}">
+                            <td>
+                                <input
+                                    class="form-control"
+                                    th:field="*{education[__${stat.index}__].school}">
+                            </td>
+                            <td>
+                                <input
+                                    class="form-control"
+                                    th:field="*{education[__${stat.index}__].degree}">
+                            </td>
+                            <td>
+                                <input
+                                    class="form-control"
+                                    type="date"
+                                    th:field="*{education[__${stat.index}__].startDate}">
+                            </td>
+                            <td>
+                                <input
+                                    class="form-control"
+                                    type ="date"
+                                    th:field="*{education[__${stat.index}__].endDate}">
+                            </td>
+                            <td class="form-check form-switch">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    th:field="*{education[__${stat.index}__].student}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Skills</h2>
+                <table>
+                    <tbody>
+                        <tr th:each="skill,stat : *{skills}">
+                            <td>
+                                <input
+                                    class="form-control"
+                                    th:field="*{skills[__${stat.index}__]}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <input type="submit" value="Submit">
+
             </form>
+
         </div>
     </body>
 </html>
