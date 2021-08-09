@@ -84,11 +84,11 @@ public class Job {
     }
 
     public String getFormattedStartDate(){
-        return startDate.format(DateTimeFormatter.ofPattern("MM yyyy"));
+        return startDate.format(DateTimeFormatter.ofPattern("MMM yyyy"));
     }
 
     public String getFormattedEndDate(){
-        return endDate.format(DateTimeFormatter.ofPattern("MM yyyy"));
+        return endDate.format(DateTimeFormatter.ofPattern("MMM yyyy"));
     }
 
     @Override
@@ -99,6 +99,8 @@ public class Job {
                 ", designation='" + designation + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", isCurrentJob=" + isCurrentJob +
+                ", responsibilities=" + responsibilities +
                 '}';
     }
 }

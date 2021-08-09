@@ -76,7 +76,7 @@
 							<p class="subDetails">
 								<span th:text="${job.formattedStartDate}">April 2011</span>
 								-
-								<span th:text="${job.isCurrentJob} ? 'Present' :
+								<span th:text="${job.currentJob} ? 'Present' :
 								 	${job.formattedEndDate}">Present</span>
 							</p>
 							<ul th:each="responsibility : ${job.responsibilities}">
@@ -116,7 +116,7 @@
 							<p class="subDetails">
 								<span th:text="${education.formattedStartDate}">April 2011</span>
 								-
-								<span th:text="${education.isStudent} ? 'Present' :
+								<span th:text="${education.student} ? 'Present' :
 								 	${education.formattedEndDate}">Present</span>
 							</p>
 						</article>
