@@ -73,10 +73,10 @@
                             <th>Company</th>
                             <th>Designation</th>
                             <th>Responsibilities</th>
-
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Current Job?</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -91,16 +91,12 @@
                                     class="form-control"
                                     th:field="*{jobs[__${stat.index}__].designation}">
                             </td>
-
                             <td>
                                 <textarea
                                     class="form-control"
                                     th:field="*{jobs[__${stat.index}__].responsibilities}">
-
                                 </textarea>
                             </td>
-
-
                             <td>
                                 <input
                                     class="form-control"
@@ -115,10 +111,11 @@
                             </td>
                             <td class="form-check form-switch">
                                 <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    th:field="*{jobs[__${stat.index}__].currentJob}">
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        th:field="*{jobs[__${stat.index}__].currentJob}">
                             </td>
+                            <td><a th:href="@{'./delete?type=job&index='+${stat.index}}">Delete</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -134,6 +131,7 @@
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Currently a student?</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -166,6 +164,8 @@
                                     type="checkbox"
                                     th:field="*{education[__${stat.index}__].student}">
                             </td>
+                            <td><a th:href="@{'./delete?type=education&index='+${stat.index}}">Delete</a></td>
+
                         </tr>
                     </tbody>
                 </table>
@@ -181,6 +181,8 @@
                                     class="form-control"
                                     th:field="*{skills[__${stat.index}__]}">
                             </td>
+                            <td><a th:href="@{'./delete?type=skill&index='+${stat.index}}">Delete</a></td>
+
                         </tr>
                     </tbody>
                 </table>

@@ -114,6 +114,28 @@ public class HomeController {
         return "profile-edit";
     }
 
+    @GetMapping ("/delete")
+    public String delete(Model model, Principal principal, @RequestParam String type, @RequestParam int index) {
+        String userId = principal.getName();
+        Optional<UserProfile> userProfileOptional = userProfileRepository.findByUserName(userId);
+        userProfileOptional.orElseThrow(() -> new RuntimeException("Not found: " + userId));
+        UserProfile userProfile = userProfileOptional.get();
+
+        if ("job".equals(type)){
+            userProfile.getJobs().remove(index);
+
+        } else if ("education".equals(type)){
+            userProfile.getEducation().remove(index);
+        } else if("skill".equals(type)){
+            userProfile.getSkills().remove(index);
+        }
+        userProfileRepository.save(userProfile);
+
+        return "redirect:/edit";
+    }
+
+
+
     //Need post mapping to actually make edits to the page
     //Model attribute gives the form submission as user profile objects
     @PostMapping("/edit")
@@ -133,7 +155,11 @@ public class HomeController {
 
 
     @GetMapping("/view/{userId}")
-    public String view(@PathVariable String userId, Model model){
+    public String view(Principal principal, @PathVariable String userId, Model model){
+        if (principal != null && principal.getName() != null){
+            boolean currentUserProfile = principal.getName().equals(userId);
+            model.addAttribute("currentUserProfile", currentUserProfile);
+        }
         //If user is not found in the user repository than return user
         //Use optional so that we return user not found instead of null exception
         //lambda expression to throw exception
