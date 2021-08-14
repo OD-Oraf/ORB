@@ -35,13 +35,14 @@
     <div id="page-wrap">
 
         <!--Optional Image-->
-        <img src="../profile-templates/2/images/cthulu.png" alt="Photo of Cthulu" id="pic" />
+        <!--<img src="../profile-templates/2/images/cthulu.png" alt="Photo of Cthulu" id="pic" />-->
         <!--Name and Contact info -->
         <div id="contact-info" class="vcard">
             <!--Name-->
             <h1 class="fn">
                 <span th:text="${userProfile.firstName}">Rob</span>
                 <span th:text="${userProfile.lastName}">Jones</span></h1>
+                <a th:if="${currentUserProfile}" href="/edit">Edit</a>
             <h1 class="fn"></h1>
             <!--Cell/Email-->
             <p>
@@ -50,7 +51,7 @@
             </p>
         </div>
 
-        <!-- Objective or Profile Summary-->
+        <!-- Objective or Profile Summary Section-->
         <div id="objective">
             <p th:text="${userProfile.summary}">
                 I am an outgoing and energetic (ask anybody) young professional, seeking a 
@@ -59,6 +60,7 @@
                 I can bring world domination to your organization. 
             </p>
         </div>
+
         <!--Spacer-->
         <div class="clear"></div>
         
@@ -66,46 +68,58 @@
             <!--Spacer-->
             <dd class="clear"></dd>
 
-            <!--Education-->
+            <!--Education Section-->
             <dt>Education</dt>
-            <dd>
-                <h2>Withering Madness University - Planet Vhoorl</h2>
-                <p><strong>Major:</strong> Public Relations<br />
-                   <strong>Minor:</strong> Scale Tending</p>
+            <dd th:each="education : ${userProfile.education}">
+                <p th:text="${education.degree}"><strong>Major:</strong> Public Relations<br />
+<!--                   <strong>Minor:</strong> Scale Tending</p>-->
+                <p class="subDetails">
+                    <span th:text="${education.formattedStartDate}">April 2011</span>
+                    -
+                    <span th:text="${education.student} ? 'Present' :
+								 	${education.formattedEndDate}">Present</span>
+                </p>
             </dd>
 
             <!--Spacer-->
             <dd class="clear"></dd>
 
-            <!--Skills-->
+            <!--Skills Section-->
             <dt>Skills</dt>
-            <dd>
-                <h2>Office skills</h2>
-                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
+            <dd th:each="skill : ${userProfile.skills}">
+                <h2 th:text="${skill}">Office skills</h2>
+<!--                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>-->
                 
-                <h2>Computer skills</h2>
-                <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
+<!--                <h2>Computer skills</h2>-->
+<!--                <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>-->
             </dd>
 
             <!--Spacer-->
             <dd class="clear"></dd>
 
-            <!--Work Experience-->
+            <!--Work Experience Section-->
             <dt>Experience</dt>
-            <dd>
-                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
-                <ul>
-                    <li>Inspired and won highest peasant death competition among servants</li>
-                    <li>Helped coordinate managers to grow cult following</li>
-                    <li>Provided untimely deaths to all who opposed</li>
+            <dd th:each="job : ${userProfile.jobs}">
+                <h2 th:text="${job.company}">Doomsday Cult
+                    <span th:text="${job.occupationTitle}">Leader/Overlord - Baton Rogue, LA</span>
+                    <span th:text="${job.formattedStartDate}">1926</span>
+                    <span th:text="${job.currentJob} ? 'Present' :
+								 	${job.formattedEndDate}">2010</span>
+                </h2>
+                <ul th:each="responsibility : ${job.responsibilities}">
+                    <li th:text="${responsibility}">
+                        Inspired and won highest peasant death competition among servants
+                    </li>
+<!--                    <li>Helped coordinate managers to grow cult following</li>-->
+<!--                    <li>Provided untimely deaths to all who opposed</li>-->
                 </ul>
                 
-                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
-                <ul>
-                    <li>Worked on grass-roots promotional campaigns</li>
-                    <li>Reduced theft and property damage percentages</li>
-                    <li>Janitorial work, Laundry</li>
-                </ul> 
+<!--                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>-->
+<!--                <ul>-->
+<!--                    <li>Worked on grass-roots promotional campaigns</li>-->
+<!--                    <li>Reduced theft and property damage percentages</li>-->
+<!--                    <li>Janitorial work, Laundry</li>-->
+<!--                </ul> -->
             </dd>
 
             <!--Spacer-->

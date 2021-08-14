@@ -20,7 +20,7 @@ public class UserProfile {
     private String fullName;
     private String email;
     private String phone;
-    private String designation;
+    private String occupationTitle;
 
     //One profile can have many jobs
     //When a profile delete, the jobs delete
@@ -95,12 +95,12 @@ public class UserProfile {
         this.phone = phone;
     }
 
-    public String getDesignation() {
-        return this.designation;
+    public String getOccupationTitle() {
+        return this.occupationTitle;
     }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setOccupationTitle(String occupationTitle) {
+        this.occupationTitle = occupationTitle;
     }
 
     public List<Job> getJobs() {
@@ -155,7 +155,7 @@ public class UserProfile {
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", designation='" + designation + '\'' +
+                ", occupationTitle='" + occupationTitle + '\'' +
                 ", jobs=" + jobs +
                 '}';
     }

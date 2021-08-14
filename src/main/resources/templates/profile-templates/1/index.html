@@ -33,7 +33,7 @@
 						<a th:if="${currentUserProfile}" href="/edit">Edit</a>
 					</h1>
 
-					<h2 class="quickFade delayThree" th:text="${userProfile.designation}">
+					<h2 class="quickFade delayThree" th:text="${userProfile.occupationTitle}">
 						Job Title
 					</h2>
 				</div>
@@ -61,8 +61,9 @@
 					<div class="clear"></div>
 				</section>
 
-
+				<!-- Work Experience Section-->
 				<section>
+
 					<div class="sectionTitle">
 						<h1>Work Experience</h1>
 					</div>
@@ -70,7 +71,7 @@
 					<div class="sectionContent" th:each="job : ${userProfile.jobs}">
 						<article>
 							<h2>
-								<span th:text="${job.designation}">Job Title</span>
+								<span th:text="${job.occupationTitle}">Job Title</span>
 								at
 								<span th:text="${job.company}">Company</span>
 							</h2>
@@ -89,7 +90,7 @@
 					<div class="clear"></div>
 				</section>
 
-
+				<!-- Key Skills Section-->
 				<section>
 					<div class="sectionTitle">
 						<h1>Key Skills</h1>
@@ -103,7 +104,7 @@
 					<div class="clear"></div>
 				</section>
 
-
+				<!-- Education Section-->
 				<section>
 					<div class="sectionTitle">
 						<h1>Education</h1>

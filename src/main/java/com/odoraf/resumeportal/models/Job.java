@@ -5,7 +5,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String company;
-    private String designation;
+    private String occupationTitle;
     //get dates to show up in the profile-edit
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
@@ -59,12 +58,12 @@ public class Job {
         this.company = company;
     }
 
-    public String getDesignation() {
-        return this.designation;
+    public String getOccupationTitle() {
+        return this.occupationTitle;
     }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setOccupationTitle(String occupationTitle) {
+        this.occupationTitle = occupationTitle;
     }
 
     public LocalDate getStartDate() {
@@ -96,7 +95,7 @@ public class Job {
         return "Job{" +
                 "id=" + id +
                 ", company='" + company + '\'' +
-                ", designation='" + designation + '\'' +
+                ", occupationTitle='" + occupationTitle + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", isCurrentJob=" + isCurrentJob +
