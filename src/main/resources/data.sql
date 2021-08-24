@@ -23,7 +23,7 @@ INSERT INTO user_profile (id,
 
 (3, 'od', 1,
  'Software Engineer with experience working on full stack applications using Java, Python and Javascript.',
- 'Ooduah', 'Orafidiya', 'odorafidiya@gmail.com', '9084203256', 'Software Engineer')
+ 'Ooduah', 'Orafidiya', 'odorafidiya@gmail.com', '9084203256', 'Software Engineer');
 
 
 

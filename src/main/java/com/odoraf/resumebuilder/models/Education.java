@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 public class Education {
     @Id
     @GeneratedValue(
-            strategy = GenerationType.AUTO
+            strategy = GenerationType.SEQUENCE
     )
     private int id;
     private String school;
