@@ -1,4 +1,4 @@
-package com.odoraf.resumeportal.models;
+package com.odoraf.resumebuilder.models;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

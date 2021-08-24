@@ -1,4 +1,4 @@
-package com.odoraf.resumeportal.models;
+package com.odoraf.resumebuilder.models;
 
 
 import javax.persistence.*;
@@ -10,7 +10,9 @@ import java.util.List;
 public class UserProfile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(
+            strategy = GenerationType.AUTO
+    )
     private int id;
     private String userName;
     private int theme;

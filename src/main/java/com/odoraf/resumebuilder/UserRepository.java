@@ -1,6 +1,6 @@
-package com.odoraf.resumeportal;
+package com.odoraf.resumebuilder;
 
-import com.odoraf.resumeportal.models.User;
+import com.odoraf.resumebuilder.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

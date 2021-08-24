@@ -1,7 +1,7 @@
-package com.odoraf.resumeportal;
+package com.odoraf.resumebuilder;
 
-import com.odoraf.resumeportal.models.MyUserDetails;
-import com.odoraf.resumeportal.models.User;
+import com.odoraf.resumebuilder.models.MyUserDetails;
+import com.odoraf.resumebuilder.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

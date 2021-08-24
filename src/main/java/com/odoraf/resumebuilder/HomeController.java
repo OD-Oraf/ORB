@@ -1,20 +1,15 @@
-package com.odoraf.resumeportal;
+package com.odoraf.resumebuilder;
 
-import com.odoraf.resumeportal.models.Education;
-import com.odoraf.resumeportal.models.Job;
-import com.odoraf.resumeportal.models.MyUserDetails;
-import com.odoraf.resumeportal.models.UserProfile;
+import com.odoraf.resumebuilder.models.Education;
+import com.odoraf.resumebuilder.models.Job;
+import com.odoraf.resumebuilder.models.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 //Controller holds business logic of the application
@@ -27,6 +22,93 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(){
+        //filler code
+
+        //user profile takes from sql file
+        Optional<UserProfile> profileOptional = userProfileRepository.findByUserName("od");
+        profileOptional.orElseThrow(() -> new RuntimeException("Not found: "));
+
+
+        //My own sample resume data
+        UserProfile profile1 = profileOptional.get();
+        //new job obj
+        Job job1 = new Job();
+        job1.setCompany("Enove");
+        job1.setOccupationTitle("Full Stack Engineer");
+        job1.setId(1);
+        job1.setStartDate(LocalDate.of(2020, 8,1));
+        job1.setEndDate(LocalDate.of(2021,8,1));
+        job1.getResponsibilities().add(
+                "Collaborated closely with the lead designer to " +
+                        "appropriately shape the application to the " +
+                        "needs of the business "
+        );
+        job1.getResponsibilities().add("Design custom Rest API’s integrating paypal using python");
+        job1.getResponsibilities().add("Provisioned PostgreSQL database on AWS and deployed application on Heroku");
+        job1.setCurrentJob(true);
+
+        //second new job obj
+        Job job2 = new Job();
+        job2.setCompany("UCSD Police Department");
+        job2.setOccupationTitle("Community Service Officer");
+        job2.setId(2);
+        job2.setStartDate(LocalDate.of(2017, 10,1));
+        job2.setEndDate(LocalDate.of(2020,3,1));
+        job2.getResponsibilities().add(
+                "Worked various shifts regarding campus security such as patrols " +
+                "escort services for students special event security " +
+                "facility lockups ect."
+        );
+        job2.getResponsibilities().add(
+                "Promoted within one year taking on extra responsibility as the lead officer " +
+                "1-2 nights a week managing equipment distribution" +
+                "dispatching shift information and reassigning shifts if necessary"
+        );
+        job2.setCurrentJob(false);
+
+        //insert jobs into profile obj
+        //clear for users adding new jobs
+        profile1.getJobs().clear();
+        profile1.getJobs().add(job1);
+        profile1.getJobs().add(job2);
+
+        Education e1 = new Education();
+        e1.setSchool("University of California San Diego");
+        e1.setDegree("BS Cognitive Science w/ Specialization in Machine Learning and Neural Computation");
+        e1.setIsStudent(true);
+        e1.setStartDate(LocalDate.of(2016, 9,1));
+        e1.setEndDate(LocalDate.of(2021,8,1));
+
+//        Education e2 = new Education();
+//        e2.setSchool("University of California San Diego");
+//        e2.setDegree("BS Cognitive Science w/ Specialization in Machine Learning and Neural Computation");
+//        e2.setIsStudent(true);
+//        e2.setStartDate(LocalDate.of(2019, 5,1));
+//        e2.setEndDate(LocalDate.of(2020,1,1));
+
+        //clear for making edits
+        profile1.getEducation().clear();
+        profile1.getEducation().add(e1);
+//        profile1.getEducation().add(e2);
+
+        profile1.getSkills().clear();
+        profile1.getSkills().add("Java");
+        profile1.getSkills().add("Python");
+        profile1.getSkills().add("JavaScript");
+        profile1.getSkills().add("postgreSQL");
+        profile1.getSkills().add("Spring/ Spring Boot");
+        profile1.getSkills().add("Django");
+        profile1.getSkills().add("React");
+        profile1.getSkills().add("AWS");
+        profile1.getSkills().add("Digital Ocean");
+        profile1.getSkills().add("Heroku");
+
+
+
+        System.out.println(profile1);
+
+        //save profile into user repository
+        userProfileRepository.save(profile1);
         return "index";
     }
 

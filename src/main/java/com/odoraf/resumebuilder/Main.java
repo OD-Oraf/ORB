@@ -1,6 +1,4 @@
-package com.odoraf.resumeportal;
-
-import java.util.Optional;
+package com.odoraf.resumebuilder;
 
 public class Main {
     public static void main(String[] args){

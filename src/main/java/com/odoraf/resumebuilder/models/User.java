@@ -1,16 +1,18 @@
-package com.odoraf.resumeportal.models;
+package com.odoraf.resumebuilder.models;
 
 import javax.persistence.*;
 
 //Create table called user in database
 @Entity
-@Table(name = "User")
+@Table(name = "Users")
 public class User {
     //Primary key
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
 
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.AUTO
+    )
+    private int id;
     private String userName;
     private String password;
     //User needs to be active at the point of login

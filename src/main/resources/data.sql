@@ -1,10 +1,10 @@
-insert into user (id, user_name, password, active, roles) values
+INSERT INTO users (id, user_name, password, active, roles) VALUES
 (1, 'einstein', 'einstein', true, 'USER'),
 (2, 'newton', 'newton', true, 'USER'),
-(3, 'od', '12345', true, 'USER');
+(3, 'od', 'od', true, 'USER');
 
 
-insert into user_profile (id,
+INSERT INTO user_profile (id,
                           user_name,
                           theme,
                           summary,

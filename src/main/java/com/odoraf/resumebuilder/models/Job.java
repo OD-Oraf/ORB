@@ -1,4 +1,4 @@
-package com.odoraf.resumeportal.models;
+package com.odoraf.resumebuilder.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,7 +12,9 @@ import java.util.List;
 @Table
 public class Job {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(
+            strategy = GenerationType.AUTO
+    )
     private int id;
     private String company;
     private String occupationTitle;

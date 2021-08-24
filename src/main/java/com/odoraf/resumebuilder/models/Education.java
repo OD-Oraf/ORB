@@ -1,19 +1,18 @@
-package com.odoraf.resumeportal.models;
+package com.odoraf.resumebuilder.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table
 public class Education {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(
+            strategy = GenerationType.AUTO
+    )
     private int id;
     private String school;
     private String degree;
