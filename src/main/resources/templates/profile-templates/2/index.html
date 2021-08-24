@@ -15,13 +15,19 @@
         .clear { clear: both; }
         #page-wrap { width: 800px; margin: 40px auto 60px; }
         #pic { float: right; margin: -30px 0 0 0; }
+        .date{
+            display: inline-block;
+            font-style: italic;
+            text-align: right;
+
+        }
         h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
         h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
         h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
         p { margin: 0 0 16px 0; }
         a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
         a:hover { border-bottom-style: solid; color: black; }
-        ul { margin: 0 0 32px 17px; }
+        ul { margin: 0 0 10px 10px; }
         #objective { width: 500px; float: left; }
         #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
         dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
@@ -41,7 +47,7 @@
             <!--Name-->
             <h1 class="fn">
                 <span th:text="${userProfile.firstName}">Rob</span>
-                <span th:text="${userProfile.lastName}">Jones</span></h1>
+                <span th:text="${userProfile.lastName}">Jones</span>
                 <a th:if="${currentUserProfile}" href="/edit">Edit</a>
             </h1>
             <!--Cell/Email-->
@@ -101,11 +107,15 @@
             <dt>Experience</dt>
             <dd th:each="job : ${userProfile.jobs}">
                 <h2 th:text="${job.company}">Doomsday Cult
-                    <span th:text="${job.occupationTitle}">Leader/Overlord - Baton Rogue, LA</span>
-                    <span th:text="${job.formattedStartDate}">1926</span>
-                    <span th:text="${job.currentJob} ? 'Present' :
-								 	${job.formattedEndDate}">2010</span>
+
                 </h2>
+                <h3 th:text="${job.occupationTitle}">Leader/Overlord - Baton Rogue, LA</h3>
+                <h5>
+                    <p class="date" th:text="${job.formattedStartDate}">1926 - </p>
+                    <p class="date" th:text="${job.currentJob} ? 'Present' :
+								 	${job.formattedEndDate}">2010</p>
+                </h5>
+
                 <ul th:each="responsibility : ${job.responsibilities}">
                     <li th:text="${responsibility}">
                         Inspired and won highest peasant death competition among servants
