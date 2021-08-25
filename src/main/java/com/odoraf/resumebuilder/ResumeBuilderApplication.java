@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories
-public class ResumePortalApplication {
+public class ResumeBuilderApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ResumePortalApplication.class, args);
+		SpringApplication.run(ResumeBuilderApplication.class, args);
 	}
 
 }
