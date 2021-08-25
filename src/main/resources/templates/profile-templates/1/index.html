@@ -40,7 +40,9 @@
 
 				<div id="contactDetails" class="quickFade delayFour">
 					<ul>
-						<li>Email: <span th:text="${userProfile.email}" target="_blank">joe@bloggs.com</span></li>
+						<li>Email:
+							<a th:text="${userProfile.email}" target="_blank">joe@bloggs.com</a>
+						</li>
 						<li>Phone: <span th:text="${userProfile.phone}" target="_blank">0000000000</span></li>
 					</ul>
 				</div>

@@ -35,7 +35,7 @@ public class HomeController {
         Job job1 = new Job();
         job1.setCompany("Enove");
         job1.setOccupationTitle("Full Stack Engineer");
-        job1.setId(1);
+//        job1.setId(1);
         job1.setStartDate(LocalDate.of(2020, 8,1));
         job1.setEndDate(LocalDate.of(2021,8,1));
         job1.getResponsibilities().add(
@@ -51,7 +51,7 @@ public class HomeController {
         Job job2 = new Job();
         job2.setCompany("UCSD Police Department");
         job2.setOccupationTitle("Community Service Officer");
-        job2.setId(2);
+//        job2.setId(2);
         job2.setStartDate(LocalDate.of(2017, 10,1));
         job2.setEndDate(LocalDate.of(2020,3,1));
         job2.getResponsibilities().add(
