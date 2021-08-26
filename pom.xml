@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.odoraf</groupId>
-	<artifactId>resume-portal</artifactId>
+	<artifactId>resume-builder</artifactId>
 	<version>1.0.0</version>
-	<name>resume-portal</name>
-	<description>Resume Builder Portal</description>
+	<name>resume-builder</name>
+	<description>Resume Builder Application</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -45,17 +45,17 @@
 			<optional>true</optional>
 		</dependency>
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
 <!--		<dependency>-->
-<!--			<groupId>mysql</groupId>-->
-<!--			<artifactId>mysql-connector-java</artifactId>-->
+<!--			<groupId>com.h2database</groupId>-->
+<!--			<artifactId>h2</artifactId>-->
 <!--			<scope>runtime</scope>-->
 <!--		</dependency>-->
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
