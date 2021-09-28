@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Table(name = "Users")
 public class User {
     //Primary key
-
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO

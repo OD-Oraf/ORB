@@ -106,6 +106,12 @@ In short this application allows you to :
 * [Hibernate](https://hibernate.org/)
 * [Maven](https://maven.apache.org/)
 * [Tomcat](http://tomcat.apache.org/)
+<!-- Architecture -->
+## Architecture/Database
+![Product Name Screen Shot][architecture]
+![Product Name Screen Shot][database]
+
+
 
 <!-- USAGE EXAMPLES -->
 ## Walkthrough
@@ -196,4 +202,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [profile-template-2]: images/profileTemplate2.png
 [profile-template-3]: images/profileTemplate3.png
 [orb-logo]: images/orb_logo.png
+[database]: images/database.png
+[architecture]: images/Architecture.png
 

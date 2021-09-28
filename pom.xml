@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.odoraf</groupId>
-	<artifactId>resume-portal</artifactId>
+	<artifactId>resume-builder</artifactId>
 	<version>1.0.0</version>
-	<name>resume-portal</name>
+	<name>resume-builder</name>
 	<description>Resume Builder Portal</description>
 	<properties>
 		<java.version>11</java.version>
